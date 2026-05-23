@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AQUA_SMART_IOT.LoadingScreen"
+             Title="LoadingScreen"
+             BackgroundColor="#0B0F14">
+             
+     <VerticalStackLayout
+        Spacing="20"
+        VerticalOptions="Center"
+        HorizontalOptions="Center">
+
+        <!-- Logo -->
+        <Image
+    x:Name="logo"
+    Source="splash.jpg"
+    WidthRequest="180"
+    HeightRequest="180"
+    Aspect="AspectFit"
+    Scale="1" />
+
+        <!-- App Name -->
+        <Label
+            Text="AquaSmart"
+            FontSize="32"
+            FontAttributes="Bold"
+            TextColor="#4FD1C5"
+            HorizontalTextAlignment="Center" />
+
+    <!-- Loading Indicator -->
+    <ActivityIndicator
+            IsRunning="True"
+            Color="#4FD1C5"
+            WidthRequest="40"
+            HeightRequest="40" />
+
+    <!-- Optional Loading Text -->
+    <Label
+            Text="Loading..."
+            FontSize="14"
+            TextColor="#A0AEC0"
+            HorizontalTextAlignment="Center" />
+
+    </VerticalStackLayout>
+</ContentPage>

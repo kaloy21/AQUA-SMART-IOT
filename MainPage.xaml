@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AQUA_SMART_IOT.MainPage"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="{AppThemeBinding Light=#F3F5FA, Dark=#0E1117}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="24">
+
+            <!-- ================= HEADER ================= -->
+            <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="AQUASMART"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#111, Dark=White}" />
+
+                    <Label Text="Real-time Water Quality Monitoring"
+                           FontSize="13"
+                           TextColor="{AppThemeBinding Light=#666, Dark=#AAA}" />
+                </VerticalStackLayout>
+
+                <Switch x:Name="ThemeSwitch"
+                        Grid.Column="1"
+                        Toggled="ThemeToggle"
+                        VerticalOptions="Center"/>
+            </Grid>
+
+            <!-- ================= SENSOR GRID ================= -->
+            <Grid ColumnDefinitions="*,*"
+      RowDefinitions="Auto,Auto"
+      ColumnSpacing="16"
+      RowSpacing="16">
+
+                <!-- TEMPERATURE -->
+                <Frame Grid.Row="0" Grid.Column="0"
+                       CornerRadius="22"
+                       Padding="18"
+                       HasShadow="True"
+                       BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1F2B}">
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="🌡 Temperature"
+                               FontAttributes="Bold"
+                               FontSize="15"
+                               TextColor="{AppThemeBinding Light=#333, Dark=#EEE}" />
+
+                        <Label x:Name="TempCLabel"
+                               Text="-- °C"
+                               FontSize="30"
+                               FontAttributes="Bold"
+                               TextColor="#FF6B6B"/>
+
+                        <Label x:Name="TempFLabel"
+                               Text="-- °F"
+                               FontSize="13"
+                               TextColor="{AppThemeBinding Light=#777, Dark=#BBB}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- PH -->
+                <Frame Grid.Row="0" Grid.Column="1"
+                       CornerRadius="22"
+                       Padding="18"
+                       HasShadow="True"
+                       BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1F2B}">
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="🧪 pH Level"
+                               FontAttributes="Bold"
+                               FontSize="15"
+                               TextColor="{AppThemeBinding Light=#333, Dark=#EEE}" />
+
+                        <Label x:Name="PhLabel"
+                               Text="--"
+                               FontSize="30"
+                               FontAttributes="Bold"
+                               TextColor="#E63946"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- DO -->
+                <Frame Grid.Row="1" Grid.Column="0"
+                       CornerRadius="22"
+                       Padding="18"
+                       HasShadow="True"
+                       BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1F2B}">
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="💧 Dissolved Oxygen"
+                               FontAttributes="Bold"
+                               FontSize="15"
+                               TextColor="{AppThemeBinding Light=#333, Dark=#EEE}" />
+
+                        <Label x:Name="DoMgLabel"
+                               Text="-- mg/L"
+                               FontSize="28"
+                               FontAttributes="Bold"
+                               TextColor="#4CC9F0"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- TURBIDITY -->
+                <Frame Grid.Row="1" Grid.Column="1"
+                       CornerRadius="22"
+                       Padding="18"
+                       HasShadow="True"
+                       BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1F2B}">
+
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="🌊 Turbidity"
+                               FontAttributes="Bold"
+                               FontSize="15"
+                               TextColor="{AppThemeBinding Light=#333, Dark=#EEE}" />
+
+                        <Label x:Name="TurbidityLabel"
+                               Text="-- NTU"
+                               FontSize="26"
+                               FontAttributes="Bold"
+                               TextColor="#F4A261"/>
+
+                        <Label x:Name="TurbidityRawLabel"
+                               Text="Sensor: --"
+                               FontSize="12"
+                               TextColor="{AppThemeBinding Light=#777, Dark=#AAA}" />
+
+                        <Label x:Name="TurbidityStatusLabel"
+                               Text="Status: --"
+                               FontSize="12"
+                               FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=#555, Dark=#CCC}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+            </Grid>
+
+            <!-- ================= SYSTEM STATUS ================= -->
+            <Frame CornerRadius="24"
+                   Padding="20"
+                   HasShadow="True"
+                   BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1F2B}">
+
+                <VerticalStackLayout Spacing="16">
+
+                    <Label Text="⚙ System Status"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#111, Dark=White}" />
+
+                    <Grid ColumnDefinitions="*,Auto"
+                          RowDefinitions="Auto,Auto,Auto"
+                          RowSpacing="14">
+
+                        <Label Text="🔥 Heater"
+                               FontSize="15"
+                               Grid.Row="0"
+                               TextColor="{AppThemeBinding Light=#333, Dark=#EEE}" />
+
+                        <Label x:Name="HeaterLabel"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               Text="--"
+                               FontSize="13"
+                               Padding="12,6"
+                               BackgroundColor="{AppThemeBinding Light=#FFECEC, Dark=#3A1F1F}"
+                               TextColor="{AppThemeBinding Light=#B71C1C, Dark=#FFBABA}" />
+
+                        <Label Text="🚰 Refill/Drain Pump"
+                               FontSize="15"
+                               Grid.Row="1"
+                               TextColor="{AppThemeBinding Light=#333, Dark=#EEE}" />
+
+                        <Label x:Name="RefillPumpLabel"
+                               Grid.Row="1"
+                               Grid.Column="1"
+                               Text="--"
+                               FontSize="13"
+                               Padding="12,6"
+                               BackgroundColor="{AppThemeBinding Light=#E8F5E9, Dark=#1F3A2B}"
+                               TextColor="{AppThemeBinding Light=#1B5E20, Dark=#9AE6B4}" />
+
+                        <Label Text="🔄 Aerator"
+                               FontSize="15"
+                               Grid.Row="2"
+                               TextColor="{AppThemeBinding Light=#333, Dark=#EEE}" />
+
+                        <Label x:Name="CirculationPumpLabel"
+                               Grid.Row="2"
+                               Grid.Column="1"
+                               Text="--"
+                               FontSize="13"
+                               Padding="12,6"
+                               BackgroundColor="{AppThemeBinding Light=#FFF3E0, Dark=#3A2F1F}"
+                               TextColor="{AppThemeBinding Light=#E65100, Dark=#FFD180}" />
+
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
