@@ -14,8 +14,8 @@ LiquidCrystal_I2C lcd(0x27, 20, 4);
 
 
 
-#define API_KEY "AIzaSyAeCTUouX6Jht2gx2oT0nszqcVzhaiB2pI"
-#define DATABASE_URL "https://aquasmartiot-de9ce-default-rtdb.firebaseio.com/"  //<databaseName>.firebaseio.com or <databaseName>.<region>.firebasedatabase.app
+#define API_KEY "*****"
+#define DATABASE_URL "*****"  //<databaseName>.firebaseio.com or <databaseName>.<region>.firebasedatabase.app
 
 
 
